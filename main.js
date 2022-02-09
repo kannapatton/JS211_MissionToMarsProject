@@ -10,12 +10,38 @@ const jobTypes = {
 };
 
 // Your code will go here
+class CrewMember
 
+{
+  constructor(name,job,specialSkill,ship){
+  this.name = name;
+  this.job = job;
+  this.specialSkill = specialSkill;
+  
+}
+enterShip(type)  {
+  type.crew.push(this);
+  this.ship = type;
+}
+}
 
-
-
-
-
+class Ship
+{
+  constructor(name, type, ability, crew){
+  this.name = name;
+  this.type = type;
+  this.ability = ability;
+  this.crew = [];
+}
+missionStatement() {
+  if (this.crew == 0){
+  return "Can't perform a mission yet.";}
+  else {
+    return this.ability;
+  }
+}
+}
+      
 
 // Begin by reading the tests and building a function that will full each one.
 // As you build, you might not have to build them in order, maybe you do...
@@ -68,3 +94,7 @@ if (typeof describe === 'function'){
     });
   });
 }
+// Build a class for CrewMember.
+// Build a class for Ship.
+// Make sure CrewMembers can enter Ships.
+// Make sure to return a mission statement.
